@@ -20,17 +20,18 @@ md <- read.table(file="movies.txt", sep=",", header=TRUE)
 ?read.table
 
 # Useful functions
-head(md)
-summary(md)
-str(md)
-names(md)
+head(md) 			# Return the first part of the table.
+tail(md)			# Return the last part of the table.
+summary(md) 		# 'summary' is a generic function used to producte result summaries of the results of various model fitting functions.
+str(md) 			# Compactly display the internal structure of an R object.
+names(md) 			# Get column names.
 
 
 # We will transform binary attributes into nominal variables with a fixed number of possible values (factors)
-md$Action <- as.factor(md$Action)
+md$Action <- as.factor(md$Action) 					# Possible values are 0 and 1 (levels: 0 1)
 md$Animation <- as.factor(md$Animation)
 
-# The remaining columns will be transformed using the for loop
+# The remaining columns will be transformed using the for loop (Alternative way of doing the same thing)
 for (i in 20:24)
 	md[,i] <- as.factor(md[,i])
 
@@ -58,13 +59,12 @@ md[,3]
 md$length
 
 # Useful data visualization functions
-plot(md$length)
-hist(md$length)
-plot(density(md$length))
-boxplot(md$length)
-barplot(table(md$Drama))
-pie(table(md$mpaa))
-
+plot(md$length) 			
+hist(md$length) 			# md$length returns a vector containing all the movie lengths.
+plot(density(md$length)) 	# Plot estimated PDF.
+boxplot(md$length) 			# Make box plot.
+barplot(table(md$Drama)) 	# Plot number of dramas against other genres.
+pie(table(md$mpaa)) 		# make a pie graph of the Motion Picture Association of America's ratings
 
 
 ###############################################################################
@@ -82,7 +82,6 @@ pie(table(md$Comedy))
 
 
 #  it is important to always label graphs ...
-
 tab <- table(md$Comedy)
 names(tab) <- c("Other genres", "Comedies")
 tab
@@ -102,11 +101,13 @@ pie(tab, main = "Proportion of comedies to other genres")
 ###############################################################################
 
 # Plot the rating distribution for comedies
+# Select rows representing comedies and select the "rating" column
 hist(md[md$Comedy == "1", "rating"], xlab="Rating", ylab="Frequency", main="Histogram of ratings for comedies")
 
 # Box plots provide a visual display of the range and potential skewness of the data
 boxplot(md[md$Comedy == "1", "rating"], ylab="Rating", main="Boxplot of ratings for comedies")
 
+# Find quantiles of the comedies' ratings
 quantile(md$rating[md$Comedy == 1])
 
 
