@@ -106,10 +106,12 @@ hist(md[md$Comedy == "1", "rating"], xlab="Rating", ylab="Frequency", main="Hist
 
 # Box plots provide a visual display of the range and potential skewness of the data
 boxplot(md[md$Comedy == "1", "rating"], ylab="Rating", main="Boxplot of ratings for comedies")
+# note: [row, column]
+
 
 # Find quantiles of the comedies' ratings
 quantile(md$rating[md$Comedy == 1])
-
+# note: select rating column from rows where Comedy == 1
 
 ###############################################################################
 # 
@@ -121,8 +123,8 @@ quantile(md$rating[md$Comedy == 1])
 comedy <- md$Comedy == "1"
 
 # Calculate the mean rating value for comedies and non-comedies
-mean(md[comedy,"rating"])
-mean(md[!comedy,"rating"])
+mean(md[comedy,"rating"]) 		# Compute mean of ratings of comedies.
+mean(md[!comedy,"rating"]) 		# Compute mean of ratings of non-comedies.
 
 # Comedies have, on average, higher ratings than non-comedies
 
@@ -137,11 +139,14 @@ boxplot(rating ~ Comedy, data=md, names=c("Other genres", "Comedies"), ylab="Rat
 #
 ###############################################################################
 
+
+# Selection mask (year greater or equal to 1990)
 sel <- md$year >= 1990
 
 # the table() command can be used to get a two-way contigency table 
 table(md$Comedy[sel], md$year[sel])
 
+# Make a vector of years column where year is greater or equal to 1990.
 table(md$year[sel])
 
 tabcomedy <- table(md$Comedy[sel], md$year[sel])
@@ -201,7 +206,7 @@ which(is.na(md$budget))
 sel <- is.na(md$budget)
 mdsub <- md[!sel,]
 
-nrow(mdsub)
+nrow(mdsub) 			# Number of movies with specified budgets (number of rows in data frame)
 summary(mdsub$budget)
 
 
@@ -220,7 +225,7 @@ mdsub[which.max(ratio),]
  
 # Let's discretize these budgets to:
 # low (less than 1M), mid (between 1M and 50M) and big (more than 50M)
-
+# Return a vector of labels for each movie.
 disbudget <- cut(mdsub$budget, c(0, 1000000, 50000000, 500000000), labels=c("low", "mid", "big"))
 barplot(table(disbudget)/length(disbudget), xlab="Budget", ylab="Relative frequency", main="Proportion of movies vs budget")
 
