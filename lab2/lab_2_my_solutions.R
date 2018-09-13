@@ -121,9 +121,29 @@ pie(tab_compare / sum(tab_compare), main = "Proportions of Dramas rated Higher o
 ######
 
 # Construct a contingency table.
+sel_years <- md$year >= 1995 & md$year <= 2005 
 
-# Get years.
-animation_years <- md$year[md$Animation == "1" & md$year >= 1995 & md$year <= 2005]
-# Get 
+num_animated <- table(md$Animation[sel_years], md$year[sel_years])
 
-num_animated <- table()
+plot(x = colnames(num_animated), y = num_animated[2,], ylab = "number of titles", xlab = "year", main = "Number of Animation Titles Between 1995-2005")
+
+# Commulative plot for each year (gets same result).
+agg.com <- aggregate((Animation == "1") ~ year, md[md$year >= 1995 & md$year <= 2005,], sum)
+plot(agg.com[,1], agg.com[,2], type="l", xlab = "year", ylab= "number of titles", main="Number of Animation Titles Between 1995-2005")
+
+######
+# 6. #
+######
+
+# Plot boxplots of movie lenghts and short movie lengths.
+boxplot(length ~ Short, md, xlab="Movie lengths / Short movie lengths", ylab="Length in min", main = "Distribution of Movie Lengths vs. Movie lengths of Short Movies")
+
+# Alternative way - Is the longest short film shorter than the shortest non-short film?
+max(md$length[md$Short == "1"]) < min(md$length[md$Short == "0"])
+
+# 2. set of questions ##################################################################################################################################################
+
+######
+# 7. #
+######
+
