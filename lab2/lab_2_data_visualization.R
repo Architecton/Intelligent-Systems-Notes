@@ -290,5 +290,3 @@ for (y in 1970:2000)
 
 # plot the resulting vector (use type="l" for lines)
 plot(1970:2000, h, type="l", xlab="Year", ylab="Height in cm", main="Average height in NBA")
-
-
