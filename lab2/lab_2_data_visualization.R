@@ -144,13 +144,13 @@ boxplot(rating ~ Comedy, data=md, names=c("Other genres", "Comedies"), ylab="Rat
 sel <- md$year >= 1990
 
 # the table() command can be used to get a two-way contigency table 
-table(md$Comedy[sel], md$year[sel])
+table(md$Comedy[sel], md$year[sel]) # MARK
 
 # Make a vector of years column where year is greater or equal to 1990.
 table(md$year[sel])
 
 tabcomedy <- table(md$Comedy[sel], md$year[sel])
-tabyear <- table(md$year[sel])
+tabyear <- table(md$year[sel]) # Mark
 tabcomedy[2,]/tabyear
 
 ratio <- tabcomedy[2,]/tabyear
@@ -238,7 +238,7 @@ boxplot(mdsub$rating ~ disbudget, xlab="Budget", ylab="Rating", main="Boxplot of
 # EXAMPLE 7: 
 # What is the cumulative movie budget for each year from 1990 to 2000?
 # What is the average movie budget for each year from 1990 to 2000?
-# (consider only those movies for witch information on the budget is available!)
+# (consider only those movies for which information on the budget is available!)
 #
 ###############################################################################
 

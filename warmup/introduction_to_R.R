@@ -65,14 +65,19 @@ v <- c(8, 4, 2, 3, 6, 9, 1)
 length(v)
 max(v)
 min(v)
-which.min(v)
+
+which.min(v) 	# At which index is the minimum element?
+which.max(v)	# At which index is the maximum element?
+
 sum(v)
 mean(v)
 sd(v)
 rev(v)
 sort(v)
+
 sort(v, decreasing=T)
-order(v)
+
+order(v)		# Get indices of elements in sorted vector.
 
 
 # types of vectors
@@ -80,6 +85,7 @@ mode(v)
 
 # logical vector - has logical constants as elements 
 b <- c(TRUE, FALSE, F, T) 				# F and T are aliases for TRUE and FALSE
+
 b
 mode(b)
 
@@ -135,7 +141,7 @@ x
 x[3]
 x[c(1,4,5)]
 x[1:3]
-x[]
+x[] 			# Whole vector
 
 
 # negative integer indices address all elements but those stated
@@ -152,7 +158,7 @@ x > 0
 
 # logical vector indexing
 x[x>0]						# Positive elements
-x[x <= -20 | x > 50]
+x[x <= -20 | x > 50]		# Get vector of elements that satisfy predicate.
 x[x > 40 & x < 100]
 
 # equality operator is ==
