@@ -116,7 +116,7 @@ quantile(md$rating[md$Comedy == 1])
 ###############################################################################
 # 
 # EXAMPLE 3: Are comedies on average better rated than non-comedies?
-#
+# MARK
 ###############################################################################
 
 # Select comedies
@@ -136,7 +136,7 @@ boxplot(rating ~ Comedy, data=md, names=c("Other genres", "Comedies"), ylab="Rat
 ###############################################################################
 #
 # EXAMPLE 4: What is the proportion of comedies (per year) from 1990 onwards?
-#
+# MARK
 ###############################################################################
 
 
@@ -157,7 +157,6 @@ ratio <- tabcomedy[2,]/tabyear
 barplot(ratio, xlab="Year", ylab="Relative frequency", main="Proportion of comedies")
 
 plot(x=names(ratio), y=as.vector(ratio), type="l", xlab="Year", ylab="Relative frequency", main="Proportion of comedies, 1990-2005")
-
 
 ###############################################################################
 # 
@@ -192,7 +191,7 @@ abline(h=mean(md$rating))
 ###############################################################################
 #
 # EXAMPLE 6: Do movies with bigger budgets get higher ratings?
-#
+# MARK
 ###############################################################################
 
 # there are missing values in the budget attribute
@@ -240,6 +239,7 @@ boxplot(mdsub$rating ~ disbudget, xlab="Budget", ylab="Rating", main="Boxplot of
 # What is the average movie budget for each year from 1990 to 2000?
 # (consider only those movies for which information on the budget is available!)
 #
+# MARK
 ###############################################################################
 
 # Select the movies that contain information on their budgets

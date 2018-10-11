@@ -21,7 +21,7 @@ z
 
 
 # listing and deleting objects
-ls()
+ls() # mark
 rm(y)
 rm(x,z)
 
@@ -41,9 +41,11 @@ v
 v <- 1:10 									# similar to MATLAB
 v
 
+# mark
 v <- seq(from=5, to=10, by=2) 				# Function that returns a sequece
 v
 
+# mark
 w <- rep(v, times = 2) 						# Repeat vector v 2 times
 w
 
@@ -81,7 +83,7 @@ order(v)		# Get indices of elements in sorted vector.
 
 
 # types of vectors
-mode(v)
+mode(v) 	# mark
 
 # logical vector - has logical constants as elements 
 b <- c(TRUE, FALSE, F, T) 				# F and T are aliases for TRUE and FALSE
@@ -228,7 +230,7 @@ gender <- c("f","m","m","m","f","m","f")
 gender
 
 # factors are useful when modelling nominal variables
-gender <- factor(gender)
+gender <- factor(gender) 	# md
 gender
 
 # argument "levels" defines all possible elements' values
@@ -257,6 +259,7 @@ table(dir)
 #
 
 # creating a list
+# mark
 student <- list(id=12345,name="Marko",marks=c(10,9,10,9,8,10)) 	# A "record"
 student
 
@@ -308,6 +311,7 @@ df[1:5,] 		# first 5 rows
 df[,1] 			# first vector in data frame
 df[,c(1,3,4)] 	# first, third and fourth vector in data frame
 df[1,3] 		# first row second column
+# mark
 df[1,-3] 		# first row and all except the third column
 
 df$height 		# select vectors by name
