@@ -24,15 +24,25 @@ Capacity <- 10
 # unfeasible solutions.
 knapsack <- function(x) 
 {
-	f <- sum(x * values)
-	w <- sum(x * weights)
+	f <- sum(x * values) 	# sum of values at places where there is a 1 in vector x
+	w <- sum(x * weights) 	# same for weights
 
-	if (w > Capacity)
-		f <- Capacity - w
+	if (w > Capacity) 		# If weight exceeds capacity...
+		f <- Capacity - w 	# Penalize solution.
 
-	f	
+	return (f)
 }
 
+# Run genetic algorithm with a binary vector as a gene, knapstack value as fitness function, maximum of 1000 generations
+# yielding when the best result does not change for 200 iterations.
 GA3 <- ga(type = "binary", fitness = knapsack, nBits = length(weights), maxiter = 1000, run = 200, popSize = 100)
 
+# Results summary.
 summary(GA3)
+
+# Extract solution value and weight.
+sol <- as.vector(GA3@solution)
+sol_value_idx <- which(sol == 1, sol)
+sol_weight_idx <- which(sol == 1, sol)
+sol_value <- sum(values[sol_value_idx])
+sol_weight <- sum(weights[sol_weight_idx])
