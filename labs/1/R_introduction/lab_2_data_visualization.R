@@ -9,7 +9,7 @@
 # You can achive this using the "setwd" command or by selecting "File -> Change dir..."
 
 # for example:
-# setwd("c:\\labs\\data\\")
+setwd("/home/jernej/Desktop/Repositories/classes/third-year/intelligent-systems-class/labs/1/R_introduction")
 
 
 # To read data from a text file, use the "read.table" command.
